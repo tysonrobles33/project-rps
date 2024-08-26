@@ -45,3 +45,11 @@ function playRound (playerChoice, computerChoice) {
         console.log('Sorry, there was an error.')
     }
 }
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playRound()
+    }
+}
+
+playGame()
