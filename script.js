@@ -22,16 +22,22 @@ function playRound (playerChoice, computerChoice) {
     playerChoice = getPlayerChoice()
     computerChoice = getComputerChoice()
     if (playerChoice == 'rock' && computerChoice == 'scissors') {
+        playerScore++
         console.log('You Win! Rock beats scissors.')
     } else if (playerChoice == 'paper' && computerChoice == 'rock') {
+        playerScore++
         console.log('You Win! Paper beats rock.')
     } else if (playerChoice == 'scissors' && computerChoice == 'paper') {
+        playerScore++
         console.log('You Win! Scissors beats paper.')
     } else if (playerChoice == 'rock' && computerChoice == 'paper') {
+        computerScore++
         console.log('You Lost. Paper beats rock')
     } else if (playerChoice == 'paper' && computerChoice == 'scissors') {
+        computerScore++
         console.log('You Lost. Scissors beats paper')
     } else if (playerChoice == 'scissors' && computerChoice == 'rock') {
+        computerScore++
         console.log('You Lost. Rock beats scissors')
     } else if (playerChoice == computerChoice){
         console.log('Tie!')
