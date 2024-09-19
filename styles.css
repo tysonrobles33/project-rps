@@ -1,0 +1,15 @@
+img {
+    width: 250px;
+    height: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
