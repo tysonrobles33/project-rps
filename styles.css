@@ -13,3 +13,8 @@ img {
     justify-content: center;
     gap: 25px;
 }
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+}
