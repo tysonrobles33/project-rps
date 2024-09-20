@@ -1,6 +1,7 @@
 let playerScoreBox = document.querySelector('.playerScoreBox');
 let computerScoreBox = document.querySelector('.computerScoreBox');
 let roundCounterBox = document.querySelector('.roundCounterBox');
+let messageBox = document.querySelector('.messageBox');
 let roundCounter = 0;
 let playerScore = 0;
 let computerScore = 0;
@@ -26,59 +27,77 @@ function playRound (playerChoice, computerChoice) {
         playerScore++;
         roundCounterBox.textContent = roundCounter;
         playerScoreBox.textContent = playerScore;
-            console.log('You Win! Rock beats scissors.');
+            messageBox.textContent = 'You Win! Rock beats scissors.';
+        checkScore()
     } else if (playerChoice == 'btn-paper' && computerChoice == 'rock') {
         roundCounter++;
         playerScore++;
         roundCounterBox.textContent = roundCounter;
         playerScoreBox.textContent = playerScore;
-            console.log('You Win! Paper beats rock.');
+        messageBox.textContent ='You Win! Paper beats rock.';
+        checkScore()
     } else if (playerChoice == 'btn-scissors' && computerChoice == 'paper') {
         roundCounter++;
         playerScore++;
         roundCounterBox.textContent = roundCounter;
         playerScoreBox.textContent = playerScore;
-            console.log('You Win! Scissors beats paper.');
+        messageBox.textContent ='You Win! Scissors beats paper.';
+        checkScore()
     } else if (playerChoice == 'btn-rock' && computerChoice == 'paper') {
         roundCounter++;
         computerScore++;
         roundCounterBox.textContent = roundCounter;
         computerScoreBox.textContent = computerScore;
-            console.log('You Lost. Paper beats rock');
+        messageBox.textContent ='You Lost. Paper beats rock';
+        checkScore()
     } else if (playerChoice == 'btn-paper' && computerChoice == 'scissors') {
         roundCounter++;
         computerScore++;
         roundCounterBox.textContent = roundCounter;
         computerScoreBox.textContent = computerScore;
-            console.log('You Lost. Scissors beats paper');
+        messageBox.textContent ='You Lost. Scissors beats paper';
+        checkScore()
     } else if (playerChoice == 'btn-scissors' && computerChoice == 'rock') {
         roundCounter++;
         computerScore++;
         roundCounterBox.textContent = roundCounter;
         computerScoreBox.textContent = computerScore;
-            console.log('You Lost. Rock beats scissors');
+        messageBox.textContent = 'You Lost. Rock beats scissors';
+        checkScore()
     } else if (playerChoice == ("btn-" + computerChoice)){
         roundCounter++;
         roundCounterBox.textContent = roundCounter;
-        console.log('Tie!')
+        messageBox.textContent ='Tie!'
+        checkScore()
     } else {
-        console.log(playerChoice, computerChoice)
+        messageBox.textContent = "Sorry there was an error."
     }
 }
-/*
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        playRound()
-    }
-}
-
-playGame()
-*/
 
 let buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         
-        playRound(playerChoice = button.className)
+        playRound(playerChoice = button.className);
     })
 })
+
+function checkScore () {
+    if (playerScore == 5) {
+        alert('Game Over. You Won!');
+        roundCounter = 0;
+        roundCounterBox.textContent = 0;
+        playerScore = 0;
+        playerScoreBox.textContent = 0;
+        computerScore = 0;
+        computerScoreBox.textContent = 0;
+    } else if (computerScore == 5) {
+        alert('Game Over. You Lost.');
+        roundCounter = 0;
+        roundCounterBox.textContent = 0;
+        playerScore = 0;
+        playerScoreBox.textContent = 0;
+        computerScore = 0;
+        computerScoreBox.textContent = 0;
+    }
+}

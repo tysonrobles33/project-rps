@@ -18,3 +18,15 @@ img {
     display: flex;
     justify-content: space-around;
 }
+
+.messageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageBox {
+    width: 850px;
+    height: 25px;
+    border: 1px solid gray;
+}
