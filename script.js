@@ -14,35 +14,31 @@ function getComputerChoice () {
     }
 }
 
-function getPlayerChoice() {
-    return prompt("Rock, Paper, or Scissors?").toLowerCase()
-}
 
 function playRound (playerChoice, computerChoice) {
-    playerChoice = getPlayerChoice()
     computerChoice = getComputerChoice()
-    if (playerChoice == 'rock' && computerChoice == 'scissors') {
+    if (playerChoice == 'btn-rock' && computerChoice == 'scissors') {
         playerScore++
         console.log('You Win! Rock beats scissors.')
-    } else if (playerChoice == 'paper' && computerChoice == 'rock') {
+    } else if (playerChoice == 'btn-paper' && computerChoice == 'rock') {
         playerScore++
         console.log('You Win! Paper beats rock.')
-    } else if (playerChoice == 'scissors' && computerChoice == 'paper') {
+    } else if (playerChoice == 'btn-scissors' && computerChoice == 'paper') {
         playerScore++
         console.log('You Win! Scissors beats paper.')
-    } else if (playerChoice == 'rock' && computerChoice == 'paper') {
+    } else if (playerChoice == 'btn-rock' && computerChoice == 'paper') {
         computerScore++
         console.log('You Lost. Paper beats rock')
-    } else if (playerChoice == 'paper' && computerChoice == 'scissors') {
+    } else if (playerChoice == 'btn-paper' && computerChoice == 'scissors') {
         computerScore++
         console.log('You Lost. Scissors beats paper')
-    } else if (playerChoice == 'scissors' && computerChoice == 'rock') {
+    } else if (playerChoice == 'btn-scissors' && computerChoice == 'rock') {
         computerScore++
         console.log('You Lost. Rock beats scissors')
-    } else if (playerChoice == computerChoice){
+    } else if (playerChoice == ("btn-" + computerChoice)){
         console.log('Tie!')
     } else {
-        console.log('Sorry, there was an error.')
+        console.log(playerChoice, computerChoice)
     }
 }
 /*
@@ -53,6 +49,12 @@ function playGame() {
 }
 
 playGame()
-
 */
 
+let buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        
+        playRound(playerChoice = button.className)
+    })
+})
